@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Khan | Extraordinary Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --darker-bg: #0a0a1a;
+      --dark-bg: #12142e;
+      --neon-blue: #09f0fd;
+      --neon-pink: #ff2d95;
+      --neon-purple: #8a2be2;
+      --neon-green: #46fc29;
+      --neon-red: #ff2d2d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 26, 0.95);
+      padding: 30px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(10, 240, 252, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Fixed Width Problem Here */
+    .header-image, .header-img {
+      width: 90%;
+      max-width: 600px; /* Increased width to prevent text crowding */
+      height: 120px;
+      background: linear-gradient(45deg, var(--darker-bg), #1a1a3a);
+      border: 2px solid var(--neon-blue);
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(10, 240, 252, 0.4);
+    }
+
+    .header-image h1, .heading {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+      z-index: 2;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .header-image::before, .header-img::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(9, 240, 253, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 4s infinite linear;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    
+    nav a:hover {
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+      box-shadow: 0 0 10px rgba(9, 240, 253, 0.5);
+    }
+
+    /* Sections */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      padding: 40px;
+      background: rgba(20, 20, 45, 0.6);
+      border-radius: 20px;
+      border: 1px solid rgba(138, 43, 226, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-green);
+      margin-bottom: 30px;
+      font-size: 2rem;
+      text-shadow: 0 0 10px rgba(70, 252, 41, 0.3);
+      border-bottom: 2px solid var(--neon-green);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* About */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .profile-img-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--neon-pink);
+      box-shadow: 0 0 25px rgba(255, 45, 149, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4rem;
+      background: #0a0a1a;
+      color: var(--neon-pink);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    
+    .skill-card {
+      background: rgba(10, 10, 30, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid var(--neon-blue);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(9, 240, 253, 0.4);
+      border-color: var(--neon-pink);
+    }
+
+    .skill-card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--neon-blue);
+    }
+    
+    .skill-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background: #0a0a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--neon-purple);
+      transition: all 0.4s ease;
+    }
+    
+    .project-card:hover {
+      border-color: var(--neon-green);
+      box-shadow: 0 0 30px rgba(70, 252, 41, 0.2);
+    }
+
+    .project-icon-box {
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a3a, #0a0a1a);
+      font-size: 4rem;
+      color: var(--neon-purple);
+    }
+    
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-green);
+      margin-bottom: 15px;
+    }
+
+    .project-info p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .project-link {
+      display: inline-block;
+      color: var(--neon-blue);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border: 1px solid var(--neon-blue);
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .project-link:hover {
+      background: var(--neon-blue);
+      color: #000;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .contact-box {
+      background: rgba(10, 10, 30, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid var(--neon-pink);
+    }
+
+    .contact-box h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-pink);
+      margin-bottom: 20px;
+    }
+
+    .contact-link {
+      display: block;
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      color: var(--neon-blue);
+      padding-left: 10px;
+    }
+
+    .contact-link i {
+      margin-right: 15px;
+      color: var(--neon-pink);
+    }
+
+    /* Footer */
+    footer {
+      background: #050510;
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 2px solid var(--neon-red);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer p {
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* Fixed Footer Width Problem */
+    footer .header-img {
+      max-width: 800px;
+      height: 100px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .header-image h1, .heading { font-size: 1.2rem; }
+      section { padding: 25px; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-image">
+      <h1>MUHAMMAD KHAN</h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- About Me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="profile-img-container">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+        <div class="about-text">
+          <p>Asalam-o-Alaikum! I'm Muhammad Khan, a professional WordPress Designer and Front-End Developer with a vision for extraordinary digital experiences.</p>
+          <p>Currently studying at <strong>Saylani Mass IT (SMIT)</strong>, I focus on building high-performance websites using WordPress, Elementor, and modern Front-end technologies like HTML5, CSS3, and JavaScript.</p>
+          <p>I also enjoy logic building with <strong>C++</strong> and am always eager to learn the latest trends in AI and modern web frameworks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Technical Arsenal</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fab fa-wordpress"></i>
+          <h3>WordPress</h3>
+          <p>Expert Theme & Plugin Customization</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-magic"></i>
+          <h3>Elementor</h3>
+          <p>Extraordinary Landing Page Design</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-html5"></i>
+          <h3>Front-End</h3>
+          <p>HTML5, CSS3 & Basic JS Mastery</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-code"></i>
+          <h3>Logic Dev</h3>
+          <p>Advanced Logic with C++</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Original Works</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-icon-box">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="project-info">
+            <h3>IBA University Page</h3>
+            <p>A highly responsive and professionally designed landing page built with WordPress and Elementor.</p>
+            <a href="https://github.com/Muhammadkhan2008" target="_blank" class="project-link">View Project</a>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-icon-box">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="project-info">
+            <h3>Shop4u Management</h3>
+            <p>An original retail management system logic developed in C++ to handle inventory and sales.</p>
+            <a href="https://github.com/Muhammadkhan2008" target="_blank" class="project-link">View Source</a>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-icon-box">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="project-info">
+            <h3>Aror University Site</h3>
+            <p>Complete WordPress landing page design featuring modern UI components and smooth navigation.</p>
+            <a href="https://github.com/Muhammadkhan2008" target="_blank" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Connect With Me</h2>
+      <div class="contact-container">
+        <div class="contact-box">
+          <h3>Contact Info</h3>
+          <a href="https://wa.me/923163347485" class="contact-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> +92 316 3347485
+          </a>
+          <a href="mailto:khanmuhammadkolachi390@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i> khanmuhammadkolachi390@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-khan-82677439b" class="contact-link" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile
+          </a>
+          <a href="https://github.com/Muhammadkhan2008" class="contact-link" target="_blank">
+            <i class="fab fa-github"></i> GitHub Profile
+          </a>
+        </div>
+        <div class="contact-box">
+          <h3>Quick Message</h3>
+          <p style="color: #94a3b8; margin-bottom: 20px;">I'm available for freelance projects and collaborations. Let's talk!</p>
+          <a href="https://wa.me/923163347485" target="_blank" style="background: var(--neon-blue); color: #000; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; font-family: 'Orbitron';">
+            MESSAGE NOW
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="header-img">
+      <h1 class="heading">Let's build something amazing</h1>
+    </div>
+    <div style="font-size: 2rem; margin-bottom: 20px;">
+      <i class="fab fa-wordpress" style="color: var(--neon-blue); margin: 0 15px;"></i>
+      <i class="fas fa-rocket" style="color: var(--neon-pink); margin: 0 15px;"></i>
+      <i class="fas fa-code" style="color: var(--neon-green); margin: 0 15px;"></i>
+    </div>
+    <p>© 2025 Muhammad Khan. Crafted with precision in Karachi, Pakistan.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year')?.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
